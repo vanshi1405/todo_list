@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, permissions,status
-
+from rest_framework import viewsets, permissions, status
 
 from .models import *
 from .serializers import *
@@ -26,6 +25,12 @@ class Show_User(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         return Response("method not allowed", status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+    def update(self, request, *args, **kwargs):
+        return Response("method not allowed", status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def destroy(self, request, *args, **kwargs):
+        return Response("method not allowed", status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 class Show_Todo(viewsets.ModelViewSet):
     serializer_class = TodoSerializer
@@ -37,6 +42,6 @@ class Show_Todo(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         user = self.request.user
         todos = Todo.objects.filter(user_id=user.id)
-        serializer=TodoSerializer(data=todos,many=True)
+        serializer = TodoSerializer(data=todos, many=True)
         serializer.is_valid()
         return Response(serializer.data)
