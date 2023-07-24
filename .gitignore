@@ -114,6 +114,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+Todo_schedular/config.ini
 
 # Spyder project settings
 .spyderproject
