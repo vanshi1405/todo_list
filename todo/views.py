@@ -10,6 +10,12 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 
 
+from django.core.mail import send_mail
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils import timezone
+
+
 class CustomPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'

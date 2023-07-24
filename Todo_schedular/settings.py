@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -128,3 +129,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtop.gmail.com'  # Your SMTP server address
+
+EMAIL_PORT = 587  # Your SMTP server port (typically 587 for TLS)
+EMAIL_USE_TLS = True  # Use TLS for secure connection, set to False if your server does not support TLS
+EMAIL_HOST_USER = 'vanshi1405shah@gmail.com'  # Your SMTP server username or email address
+EMAIL_HOST_PASSWORD = 'iloveMagrawal25'  # Your SMTP server password
+# DEFAULT_FROM_EMAIL = 'your_email@example.com'
