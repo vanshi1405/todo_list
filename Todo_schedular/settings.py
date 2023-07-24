@@ -89,11 +89,11 @@ DATABASES = {
   'default': {
     # MySQL engine. Powered by the mysqlclient module.
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'todo_list',
-    'USER': 'root',
-    'PASSWORD': 'vanshi14',
-    'HOST': 'localhost',
-    'PORT': '3306',
+    'NAME': config.get('database', 'NAME'),
+    'USER': config.get('database', 'USER'),
+    'PASSWORD': config.get('database', 'PASSWORD'),
+    'HOST': config.get('database', 'HOST'),
+    'PORT':config.get('database', 'PORT'),
   }
 }
 
