@@ -25,8 +25,8 @@ if __name__ == '__main__':
 
 # manage.py
 
-from decouple import config
-
-if __name__ == "__main__":
-    config.read_env()
-    execute_from_command_line(sys.argv)
+# from decouple import config
+#
+# if __name__ == "__main__":
+#     config.read_env()
+#     execute_from_command_line(sys.argv)
