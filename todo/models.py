@@ -1,10 +1,12 @@
 from datetime import datetime
 import datetime
 
-from django.core.validators import RegexValidator
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
+from todo.apps import TodoConfig
 priority = [
     ("High", "High"),
     ("Medium", "Medium"),
@@ -27,6 +29,7 @@ def present_or_future_date(value):
         raise models.ValidationError("The date cannot be in the past!")
     return value
 
+
 #
 # class User(User):
 #     mobile_number = models.PositiveBigIntegerField(validators=[validate_mobile_number])
@@ -43,3 +46,7 @@ class Todo(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# Connect the signal to the Task model
+
