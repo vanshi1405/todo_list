@@ -49,14 +49,8 @@ class Show_Todo(viewsets.ModelViewSet):
         if self.action == 'retrieve':
             pk = self.kwargs['pk']
             user = self.request.user
-            try:
-                queryset = Todo.objects.filter(user_id=user.id)
-            except ObjectDoesNotExist:
-                queryset = None
+            queryset = Todo.objects.filter(user_id=user.id)
             return queryset
-
-
-
 
         if self.action == 'list':
             user = self.request.user
