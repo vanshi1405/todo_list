@@ -44,9 +44,10 @@ class Todo(models.Model):
     priority = models.CharField(choices=priority, max_length=10)
     lable = models.CharField(max_length=10)
 
+
     def __str__(self):
         return self.title
 
 
-# Connect the signal to the Task model
+
 
