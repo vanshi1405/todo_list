@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from configparser import RawConfigParser
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_FILE = os.path.join(BASE_DIR, 'Todo_schedular/config.ini')
 config = RawConfigParser()
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cron',
     'rest_framework',
     'todo',
 ]
@@ -132,10 +134,39 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtop.gmail.com'  # Your SMTP server address
+EMAIL_HOST = 'smtp.office365.com'  # Your SMTP server address
 
 EMAIL_PORT = 587  # Your SMTP server port (typically 587 for TLS)
 EMAIL_USE_TLS = True  # Use TLS for secure connection, set to False if your server does not support TLS
 EMAIL_HOST_USER = config.get('email', 'EMAIL_HOST_USER')  # Your SMTP server username or email address
 EMAIL_HOST_PASSWORD = config.get('email', 'EMAIL_HOST_PASSWORD')  # Your SMTP server password
 # DEFAULT_FROM_EMAIL = 'your_email@example.com'
+
+
+# Define your periodic task function as a custom management command in your app.
+# In this example, the custom command is 'my_custom_command'.
+CRONJOBS = [
+     ('*/1 * * * *', 'myapp.cron.MyCronJob')
+]
+
+
+# settings.py
+#
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False if DEBUG else True,
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': 'info.log',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
+# }
