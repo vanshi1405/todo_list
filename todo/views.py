@@ -1,7 +1,10 @@
+from datetime import timedelta, date
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
 from rest_framework import viewsets, permissions, status
 
+from Todo_schedular import settings
 from .models import *
 from .serializers import *
 from rest_framework.status import *
