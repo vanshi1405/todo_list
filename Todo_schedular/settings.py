@@ -150,23 +150,3 @@ CRONJOBS = [
 ]
 
 
-# settings.py
-#
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False if DEBUG else True,
-#     'handlers': {
-#         'file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': 'info.log',
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['file'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-# }

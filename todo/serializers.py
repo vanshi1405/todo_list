@@ -24,6 +24,14 @@ class TodoSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         current_user = self.context['request'].user
         validated_data['user'] = current_user
-
-
         return Todo.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.title = validated_data.pop('title')
+        instance.description = validated_data.pop('description')
+        instance.due_date = validated_data.pop('due_date')
+        instance.status = validated_data.pop('status')
+        instance.priority = validated_data.pop('priority')
+        instance.lable = validated_data.pop('lable')
+        instance.save
+        return instance
