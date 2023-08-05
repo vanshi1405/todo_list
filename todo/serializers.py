@@ -34,5 +34,4 @@ class TodoSerializer(serializers.ModelSerializer):
         instance.priority = validated_data.pop('priority')
         instance.lable = validated_data.pop('lable')
         instance.save
-        
         return instance
